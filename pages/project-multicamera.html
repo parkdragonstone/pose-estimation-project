@@ -1,0 +1,206 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Project 1 - Multi-Camera</title>
+<meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self'; style-src 'self'; img-src 'self' data:; media-src 'self'; connect-src 'none'; base-uri 'none'; form-action 'none'">
+<link rel="stylesheet" href="../assets/css/portfolio.css">
+<script src="../assets/vendor/chart.umd.js" defer></script>
+<script src="../assets/vendor/chartjs-adapter-date-fns.bundle.min.js" defer></script>
+<script src="../assets/js/portfolio.js" defer></script>
+</head>
+<body>
+<header class="header">
+  <h1>Portfolio</h1>
+  <div class="sub">Computer Vision &amp; Biomechanics Researcher</div>
+  <span class="role">3D Human Pose Estimation &middot; Markerless Motion Capture &middot; Inverse Kinematics</span>
+</header>
+
+<nav class="tabs" aria-label="Portfolio sections">
+  <a class="tab-label" href="../index.html">Overview</a>
+  <a class="tab-label" href="../pages/project-multicamera.html" aria-current="page">Project 1 - Multi-Camera</a>
+  <a class="tab-label" href="../pages/project-singleview.html">Project 2 - Single-View</a>
+  <a class="tab-label" href="../pages/tech-stack.html">Tech Stack</a>
+</nav>
+
+<main class="panels">
+<div id="project-multicamera" class="tab-content active">
+  <h2>Project 1. 3D Pose Analysis Tool</h2>
+  <div class="project-meta">
+    <span><b>Multi Camera View for Kinematics Analysis</b></span>
+    <span>Role: planning and development 100%</span>
+  </div>
+
+  <div class="summary-box">
+    <b>Objective.</b> 최소 2대의 휴대폰 카메라를 이용한 markerless motion analysis tool 개발.<br>
+    <b>Approach.</b> PC에서 QR pairing으로 휴대폰 카메라를 연결하고, synchronized capture 이후 pose estimation, triangulation, filtering, marker augmentation, OpenSim inverse kinematics까지 연결했습니다.
+  </div>
+
+  <h3>Project 1 Visual Tabs</h3>
+  <input class="visual-tab-input" type="radio" name="project1-visual-tab" id="project1-tab-overall" checked>
+  <input class="visual-tab-input" type="radio" name="project1-visual-tab" id="project1-tab-camera">
+  <input class="visual-tab-input" type="radio" name="project1-visual-tab" id="project1-tab-calibration">
+  <input class="visual-tab-input" type="radio" name="project1-visual-tab" id="project1-tab-reconstruction">
+
+  <div class="visual-tabs" role="tablist" aria-label="Project 1 image sections">
+    <label class="visual-tab-label" for="project1-tab-overall">Overall Result</label>
+    <label class="visual-tab-label" for="project1-tab-camera">Step 1a-Camera Setup</label>
+    <label class="visual-tab-label" for="project1-tab-calibration">Calibration</label>
+    <label class="visual-tab-label" for="project1-tab-reconstruction">Reconstruction and Kinematics</label>
+  </div>
+
+  <div class="visual-tab-panels">
+    <section class="visual-tab-panel" id="project1-panel-overall">
+      <div class="figure-grid landscape single">
+        <figure class="figure-card wide">
+          <img class="figure-media" src="../images/project1_overallResults.png" alt="Project 1 full pipeline result overview">
+          <figcaption class="figure-caption">
+            <strong>Overall Result</strong>
+            <span>Multi-camera capture부터 OpenSim inverse kinematics까지 이어지는 전체 결과 화면입니다.</span>
+          </figcaption>
+        </figure>
+      </div>
+    </section>
+
+    <section class="visual-tab-panel" id="project1-panel-camera">
+      <div class="figure-grid landscape single">
+        <figure class="figure-card wide">
+          <img class="figure-media" src="../images/project1_cameraSetup.png" alt="Phone camera setup and synchronized capture interface">
+          <figcaption class="figure-caption">
+            <strong>Step 1a - Camera Setup</strong>
+            <span>QR pairing, PC-triggered recording, multi-camera capture, 60fps and 720p capture workflow.</span>
+          </figcaption>
+        </figure>
+      </div>
+    </section>
+
+    <section class="visual-tab-panel" id="project1-panel-calibration">
+      <div class="figure-grid landscape">
+        <figure class="figure-card">
+          <img class="figure-media" src="../images/project1_calibrationIntrinsicSetting.png" alt="Intrinsic calibration setting screen">
+          <figcaption class="figure-caption">
+            <strong>Intrinsic Setting</strong>
+            <span>Charuco board configuration and per-camera intrinsic calibration setup.</span>
+          </figcaption>
+        </figure>
+        <figure class="figure-card">
+          <img class="figure-media" src="../images/project1_calibrationIntrinsicResults.png" alt="Intrinsic calibration reprojection error result">
+          <figcaption class="figure-caption">
+            <strong>Intrinsic Results</strong>
+            <span>Focal length, principal point, distortion, and reprojection error review.</span>
+          </figcaption>
+        </figure>
+        <figure class="figure-card">
+          <img class="figure-media" src="../images/project1_calibrationExtrinsicSetting.png" alt="Extrinsic calibration point selection setting">
+          <figcaption class="figure-caption">
+            <strong>Extrinsic Setting</strong>
+            <span>Corresponding 3D point selection UI for multi-camera coordinate alignment.</span>
+          </figcaption>
+        </figure>
+        <figure class="figure-card">
+          <img class="figure-media" src="../images/project1_calibrationExtrinsicResults.png" alt="Extrinsic calibration reprojection error result">
+          <figcaption class="figure-caption">
+            <strong>Extrinsic Results</strong>
+            <span>Relative camera pose and world-coordinate alignment validation.</span>
+          </figcaption>
+        </figure>
+      </div>
+    </section>
+
+    <section class="visual-tab-panel" id="project1-panel-reconstruction">
+      <div class="figure-grid compact">
+        <figure class="figure-card tall">
+          <img class="figure-media" src="../images/project1_poseEstimationResults.png" alt="2D pose estimation result">
+          <figcaption class="figure-caption">
+            <strong>2D Pose Estimation</strong>
+            <span>YOLO + RTMPose two-tier detection.</span>
+          </figcaption>
+        </figure>
+        <figure class="figure-card tall">
+          <img class="figure-media" src="../images/project1_triangulationResults.png" alt="3D triangulation result">
+          <figcaption class="figure-caption">
+            <strong>3D Triangulation</strong>
+            <span>3D reconstruction with reprojection error checks.</span>
+          </figcaption>
+        </figure>
+        <figure class="figure-card tall">
+          <img class="figure-media" src="../images/project1_markerAugmentationResults.png" alt="Marker augmentation result">
+          <figcaption class="figure-caption">
+            <strong>Marker Augmentation</strong>
+            <span>Filtering and anatomical marker augmentation.</span>
+          </figcaption>
+        </figure>
+        <figure class="figure-card tall">
+          <img class="figure-media" src="../images/project1_kinematicResults.png" alt="OpenSim inverse kinematics result">
+          <figcaption class="figure-caption">
+            <strong>Kinematic Results</strong>
+            <span>Joint kinematics from OpenSim inverse kinematics.</span>
+          </figcaption>
+        </figure>
+      </div>
+    </section>
+  </div>
+
+  <h3>Pipeline (6 Steps)</h3>
+  <div class="pipeline">
+    <div class="step"><div class="num">01a</div><div class="body">
+      <div class="title">Camera Setup</div>
+      <div class="detail">PC-based QR pairing and synchronized recording for two or more phone cameras.</div>
+      <div class="tech">Phone capture &middot; 60fps &middot; 720p</div>
+    </div></div>
+    <div class="step"><div class="num">01b</div><div class="body">
+      <div class="title">Intrinsic Calibration</div>
+      <div class="detail">Estimate per-camera focal length, principal point, and distortion parameters.</div>
+      <div class="tech">OpenCV calibration &middot; Charuco board</div>
+    </div></div>
+    <div class="step"><div class="num">01c</div><div class="body">
+      <div class="title">Extrinsic Calibration</div>
+      <div class="detail">Align multi-camera coordinate systems by selecting corresponding 3D points.</div>
+      <div class="tech">Object point selection &middot; World coordinate alignment</div>
+    </div></div>
+    <div class="step"><div class="num">02</div><div class="body">
+      <div class="title">2D Pose Estimation</div>
+      <div class="detail">Normal mode uses YOLO-m + RTMPose-m. Performance mode uses YOLO-l + RTMPose-l.</div>
+      <div class="tech">Speed/accuracy tradeoff</div>
+    </div></div>
+    <div class="step"><div class="num">03</div><div class="body">
+      <div class="title">3D Triangulation</div>
+      <div class="detail">Recover 3D coordinates from calibrated multi-view 2D keypoints and select person IDs using reprojection error.</div>
+      <div class="tech">Multi-view geometry &middot; Reprojection error filtering</div>
+    </div></div>
+    <div class="step"><div class="num">04-06</div><div class="body">
+      <div class="title">Filtering, Marker Augmentation, and IK</div>
+      <div class="detail">Remove outliers, smooth marker trajectories, augment anatomical markers, and run OpenSim inverse kinematics.</div>
+      <div class="tech">Hampel &middot; Butterworth &middot; OpenSim</div>
+    </div></div>
+  </div>
+
+  <h3>Project 1 Video</h3>
+  <video class="video-frame" controls preload="metadata">
+    <source src="../images/project1_video.mp4" type="video/mp4">
+    Your browser does not support this video format.
+  </video>
+
+  <h3>Key Contribution</h3>
+  <ul>
+    <li>End-to-end markerless motion analysis pipeline using only synchronized phone camera videos.</li>
+    <li>Automatic person selection based on reprojection error to reduce matching errors in multi-person scenes.</li>
+    <li>Two-tier pose model configuration for speed-first and accuracy-first use cases.</li>
+    <li>Single workflow from capture to OpenSim-ready kinematic analysis.</li>
+  </ul>
+
+  <h3>Tech Stack</h3>
+  <div>
+    <span class="badge primary">Python</span>
+    <span class="badge primary">TypeScript</span>
+    <span class="badge">YOLO</span>
+    <span class="badge">RTMPose</span>
+    <span class="badge">OpenCV</span>
+    <span class="badge">OpenSim</span>
+    <span class="badge">SciPy</span>
+  </div>
+</div>
+</main>
+</body>
+</html>

@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Project - CV &amp; Biomechanics Researcher</title>
+<meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self'; style-src 'self'; img-src 'self' data:; media-src 'self'; connect-src 'none'; base-uri 'none'; form-action 'none'">
+<link rel="stylesheet" href="assets/css/portfolio.css">
+<script src="assets/vendor/chart.umd.js" defer></script>
+<script src="assets/vendor/chartjs-adapter-date-fns.bundle.min.js" defer></script>
+<script src="assets/js/portfolio.js" defer></script>
+</head>
+<body>
+<header class="header">
+  <h1>Portfolio</h1>
+  <div class="sub">Computer Vision &amp; Biomechanics Researcher</div>
+  <span class="role">3D Human Pose Estimation &middot; Markerless Motion Capture &middot; Inverse Kinematics</span>
+</header>
+
+<nav class="tabs" aria-label="Portfolio sections">
+  <a class="tab-label" href="index.html" aria-current="page">Overview</a>
+  <a class="tab-label" href="pages/project-multicamera.html">Project 1 - Multi-Camera</a>
+  <a class="tab-label" href="pages/project-singleview.html">Project 2 - Single-View</a>
+  <a class="tab-label" href="pages/tech-stack.html">Tech Stack</a>
+</nav>
+
+<main class="panels">
+<div id="overview" class="tab-content active">
+  <h2>Research Summary</h2>
+  <div class="summary-box">
+    Computer vision 기반의 3D Human Motion Analysis와 Biomechanics를 연결하는 연구를 수행했습니다.
+    Multi-View 환경에서는 휴대폰 카메라만으로 동작하는 분석 도구를 개발했고, Single-View 환경에서는 골프 스윙에 특화된 데이터셋 구축과 fine-tuning을 통해 단안 3D 분석 파이프라인을 구성했습니다.
+  </div>
+
+  <div class="grid-3">
+    <div class="metric">
+      <div class="label">Projects</div>
+      <div class="value">2</div>
+      <div class="desc">Multi-View &middot; Single-View</div>
+    </div>
+    <div class="metric">
+      <div class="label">Contribution</div>
+      <div class="value">100%</div>
+      <div class="desc">기획 &middot; 개발 &middot; 데이터 수집</div>
+    </div>
+    <div class="metric">
+      <div class="label">Subjects</div>
+      <div class="value">20</div>
+      <div class="desc">Pro 10 &middot; Amateur 10</div>
+    </div>
+  </div>
+
+  <h3>Core Research Pipeline</h3>
+  <div class="pipeline">
+    <div class="step"><div class="num">01</div><div class="body">
+      <div class="title">Data Acquisition</div>
+      <div class="detail">Synchronized multi-camera video, motion capture system, force plate, and IMU measurement.</div>
+    </div></div>
+    <div class="step"><div class="num">02</div><div class="body">
+      <div class="title">2D Pose Estimation</div>
+      <div class="detail">YOLO + RTMPose for multi-view analysis and fine-tuned MMPose for single-view golf swing analysis.</div>
+    </div></div>
+    <div class="step"><div class="num">03</div><div class="body">
+      <div class="title">3D Reconstruction</div>
+      <div class="detail">Triangulation in calibrated multi-view space, or SMPL + optimization for front-view single-camera input.</div>
+    </div></div>
+    <div class="step"><div class="num">04</div><div class="body">
+      <div class="title">Signal Processing</div>
+      <div class="detail">Hampel outlier rejection and Butterworth low-pass filtering for stable marker trajectories.</div>
+    </div></div>
+    <div class="step"><div class="num">05</div><div class="body">
+      <div class="title">Biomechanics</div>
+      <div class="detail">Marker augmentation, OpenSim inverse kinematics, joint angle time-series, and kinematic analysis.</div>
+    </div></div>
+  </div>
+
+  <h3>Project Comparison</h3>
+  <table>
+    <thead>
+      <tr><th>Category</th><th>Project 1</th><th>Project 2</th></tr>
+    </thead>
+    <tbody>
+      <tr><td>Topic</td><td>Multi-camera 3D pose analysis</td><td>Single-view golf swing 3D analysis</td></tr>
+      <tr><td>Input</td><td>Two or more phone camera videos</td><td>Front-view single camera video</td></tr>
+      <tr><td>3D Method</td><td>Triangulation</td><td>SMPL + optimization</td></tr>
+      <tr><td>Pose Model</td><td>YOLO-m/l + RTMPose-m/l</td><td>Fine-tuned MMPose</td></tr>
+      <tr><td>Output</td><td>OpenSim inverse kinematics</td><td>OpenSim IK + GRF estimation plan</td></tr>
+      <tr><td>Role</td><td>Planning and development 100%</td><td>Planning, data acquisition, and development 100%</td></tr>
+    </tbody>
+  </table>
+</div>
+</main>
+</body>
+</html>

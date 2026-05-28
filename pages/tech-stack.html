@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Tech Stack</title>
+<meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self'; style-src 'self'; img-src 'self' data:; connect-src 'none'; base-uri 'none'; form-action 'none'">
+<link rel="stylesheet" href="../assets/css/portfolio.css">
+<script src="../assets/vendor/chart.umd.js" defer></script>
+<script src="../assets/vendor/chartjs-adapter-date-fns.bundle.min.js" defer></script>
+<script src="../assets/js/portfolio.js" defer></script>
+</head>
+<body>
+<header class="header">
+  <h1>Portfolio</h1>
+  <div class="sub">Computer Vision &amp; Biomechanics Researcher</div>
+  <span class="role">3D Human Pose Estimation &middot; Markerless Motion Capture &middot; Inverse Kinematics</span>
+</header>
+
+<nav class="tabs" aria-label="Portfolio sections">
+  <a class="tab-label" href="../index.html">Overview</a>
+  <a class="tab-label" href="../pages/project-multicamera.html">Project 1 - Multi-Camera</a>
+  <a class="tab-label" href="../pages/project-singleview.html">Project 2 - Single-View</a>
+  <a class="tab-label" href="../pages/tech-stack.html" aria-current="page">Tech Stack</a>
+</nav>
+
+<main class="panels">
+<div id="tech-stack" class="tab-content active">
+  <h2>Tech Stack Summary</h2>
+  <div class="summary-box">
+    Pose estimation, 3D reconstruction, signal processing, and biomechanics analysis를 연결해 video input에서 OpenSim 기반 kinematics까지 이어지는 end-to-end pipeline을 구현했습니다.
+  </div>
+
+  <div class="grid-2">
+    <div class="stack-group">
+      <div class="group-title">Languages</div>
+      <span class="badge primary">Python</span>
+      <span class="badge primary">TypeScript</span>
+      <span class="badge">HTML/CSS</span>
+    </div>
+    <div class="stack-group">
+      <div class="group-title">2D Pose Estimation</div>
+      <span class="badge">YOLO (m / l)</span>
+      <span class="badge">RTMPose (m / l)</span>
+      <span class="badge">MMPose</span>
+      <span class="badge">Fine-tuning</span>
+    </div>
+    <div class="stack-group">
+      <div class="group-title">3D Reconstruction</div>
+      <span class="badge">Camera Calibration</span>
+      <span class="badge">Triangulation</span>
+      <span class="badge">Reprojection Error</span>
+      <span class="badge">SMPL</span>
+      <span class="badge">Optimization</span>
+    </div>
+    <div class="stack-group">
+      <div class="group-title">Signal Processing</div>
+      <span class="badge">Hampel Filter</span>
+      <span class="badge">Butterworth Lowpass</span>
+      <span class="badge">Outlier Rejection</span>
+      <span class="badge">Temporal Filtering</span>
+    </div>
+    <div class="stack-group">
+      <div class="group-title">Biomechanics</div>
+      <span class="badge">OpenSim</span>
+      <span class="badge">Inverse Kinematics</span>
+      <span class="badge">Marker Augmentation</span>
+      <span class="badge">Joint Kinematics</span>
+    </div>
+    <div class="stack-group">
+      <div class="group-title">Data Acquisition</div>
+      <span class="badge">Motion Capture System</span>
+      <span class="badge">Force Plate</span>
+      <span class="badge">IMU Sensor</span>
+      <span class="badge">Multi-Camera Sync</span>
+      <span class="badge">Phone Capture</span>
+    </div>
+  </div>
+
+  <h3>Project Mapping</h3>
+  <table>
+    <thead>
+      <tr><th>Category</th><th>Project 1 (Multi-View)</th><th>Project 2 (Single-View)</th></tr>
+    </thead>
+    <tbody>
+      <tr><td>Language</td><td>Python &middot; TypeScript</td><td>Python</td></tr>
+      <tr><td>2D Pose</td><td>YOLO + RTMPose</td><td>MMPose fine-tuning</td></tr>
+      <tr><td>3D Method</td><td>Triangulation</td><td>SMPL + optimization</td></tr>
+      <tr><td>Filtering</td><td>Hampel + Butterworth</td><td>SMPL post-filtering</td></tr>
+      <tr><td>Biomechanics</td><td>Marker augmentation + OpenSim IK</td><td>OpenSim IK</td></tr>
+      <tr><td>Validation</td><td>Reprojection error</td><td>Mocap / force plate / IMU ground truth</td></tr>
+    </tbody>
+  </table>
+
+  <div class="note">
+    Both projects were planned, implemented, and documented as independent end-to-end research pipelines.
+  </div>
+</div>
+</main>
+</body>
+</html>

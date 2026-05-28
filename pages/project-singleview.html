@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Project 2 - Single-View</title>
+<meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self'; style-src 'self'; img-src 'self' data:; media-src 'self'; connect-src 'none'; base-uri 'none'; form-action 'none'">
+<link rel="stylesheet" href="../assets/css/portfolio.css">
+<script src="../assets/vendor/chart.umd.js" defer></script>
+<script src="../assets/vendor/chartjs-adapter-date-fns.bundle.min.js" defer></script>
+<script src="../assets/js/portfolio.js" defer></script>
+</head>
+<body>
+<header class="header">
+  <h1>Portfolio</h1>
+  <div class="sub">Computer Vision &amp; Biomechanics Researcher</div>
+  <span class="role">3D Human Pose Estimation &middot; Markerless Motion Capture &middot; Inverse Kinematics</span>
+</header>
+
+<nav class="tabs" aria-label="Portfolio sections">
+  <a class="tab-label" href="../index.html">Overview</a>
+  <a class="tab-label" href="../pages/project-multicamera.html">Project 1 - Multi-Camera</a>
+  <a class="tab-label" href="../pages/project-singleview.html" aria-current="page">Project 2 - Single-View</a>
+  <a class="tab-label" href="../pages/tech-stack.html">Tech Stack</a>
+</nav>
+
+<main class="panels">
+<div id="project-singleview" class="tab-content active">
+  <h2>Project 2. Single View-Based 3D Analysis</h2>
+  <div class="project-meta">
+    <span><b>Golf Swing Motion Analysis</b></span>
+    <span>Role: planning, data acquisition, and development 100%</span>
+  </div>
+
+  <div class="summary-box">
+    <b>Objective.</b> 단일 정면 카메라 영상만으로 골프 스윙의 3D kinematics를 추출하는 분석 파이프라인 개발.<br>
+    <b>Approach.</b> Motion capture, force plate, IMU를 동시에 측정해 ground truth를 확보하고, golf-specific MMPose fine-tuning, SMPL reconstruction, optimization, OpenSim IK로 연결했습니다.
+  </div>
+
+  <h3>Data Acquisition</h3>
+  <div class="grid-3">
+    <div class="metric">
+      <div class="label">Subjects</div>
+      <div class="value">20</div>
+      <div class="desc">Pro 10 &middot; Amateur 10</div>
+    </div>
+    <div class="metric">
+      <div class="label">Trials / Subject</div>
+      <div class="value">20</div>
+      <div class="desc">Driver 10 &middot; Iron-7 10</div>
+    </div>
+    <div class="metric">
+      <div class="label">Modalities</div>
+      <div class="value">3</div>
+      <div class="desc">Mocap &middot; Force Plate &middot; IMU</div>
+    </div>
+  </div>
+
+  <h3>Project 2 Visual Tabs</h3>
+  <input class="visual-tab-input" type="radio" name="project2-visual-tab" id="project2-tab-finetune" checked>
+  <input class="visual-tab-input" type="radio" name="project2-visual-tab" id="project2-tab-reconstruction">
+  <input class="visual-tab-input" type="radio" name="project2-visual-tab" id="project2-tab-future">
+
+  <div class="visual-tabs" role="tablist" aria-label="Project 2 image sections">
+    <label class="visual-tab-label" for="project2-tab-finetune">Model Fine-Tuning</label>
+    <label class="visual-tab-label" for="project2-tab-reconstruction">2D Pose Estimation + SMPL + OpenSim IK</label>
+    <label class="visual-tab-label" for="project2-tab-future">Future Work</label>
+  </div>
+
+  <div class="visual-tab-panels">
+    <section class="visual-tab-panel" id="project2-panel-finetune">
+      <div class="figure-grid">
+        <figure class="figure-card wide">
+          <img class="figure-media" src="../images/project2_fineTuning.png" alt="Fine tuning result chart for golf swing pose estimation">
+          <figcaption class="figure-caption">
+            <strong>Model Fine-Tuning</strong>
+            <span>Golf-frame dataset construction and MMPose fine-tuning for swing-specific keypoint detection.</span>
+          </figcaption>
+        </figure>
+      </div>
+    </section>
+
+    <section class="visual-tab-panel" id="project2-panel-reconstruction">
+      <div class="figure-grid compact">
+        <figure class="figure-card tall">
+          <img class="figure-media" src="../images/project2_poseEstimationResults.png" alt="Single-view 2D pose estimation result">
+          <figcaption class="figure-caption">
+            <strong>2D Pose Estimation</strong>
+            <span>Fine-tuned model output from front-view golf swing video.</span>
+          </figcaption>
+        </figure>
+        <figure class="figure-card tall">
+          <img class="figure-media" src="../images/project2_SMPLResults.png" alt="SMPL 3D reconstruction result">
+          <figcaption class="figure-caption">
+            <strong>SMPL Reconstruction</strong>
+            <span>Single-view 3D body reconstruction with temporal post-processing.</span>
+          </figcaption>
+        </figure>
+        <figure class="figure-card tall">
+          <img class="figure-media" src="../images/project2_IKResults.png" alt="OpenSim inverse kinematics result for golf swing">
+          <figcaption class="figure-caption">
+            <strong>OpenSim IK</strong>
+            <span>Joint kinematics from reconstructed 3D motion.</span>
+          </figcaption>
+        </figure>
+      </div>
+    </section>
+
+    <section class="visual-tab-panel" id="project2-panel-future">
+      <div class="figure-grid">
+        <figure class="figure-card wide">
+          <img class="figure-media" src="../images/project2_estimateGRF.png" alt="Ground reaction force estimation workflow and result">
+          <figcaption class="figure-caption">
+            <strong>Future Work - GRF Estimation</strong>
+            <span>SMPL features and measured force plate data are used as the basis for ground reaction force estimation.</span>
+          </figcaption>
+        </figure>
+      </div>
+    </section>
+  </div>
+
+  <h3>End-to-End Pipeline</h3>
+  <div class="pipeline">
+    <div class="step"><div class="num">01</div><div class="body">
+      <div class="title">Motion Capture Measurement</div>
+      <div class="detail">Mocap system, force plate, and IMU were measured simultaneously to obtain ground truth kinematics and GRF.</div>
+    </div></div>
+    <div class="step"><div class="num">02</div><div class="body">
+      <div class="title">Front-View Golf Swing Dataset</div>
+      <div class="detail">Front-view swing images were collected and prepared for golf-specific model training.</div>
+    </div></div>
+    <div class="step"><div class="num">03</div><div class="body">
+      <div class="title">Model Fine-Tuning</div>
+      <div class="detail">MMPose was fine-tuned on the golf swing dataset to improve keypoint accuracy.</div>
+    </div></div>
+    <div class="step"><div class="num">04</div><div class="body">
+      <div class="title">2D Pose Estimation</div>
+      <div class="detail">The fine-tuned model extracts 2D keypoints from single-view video frames.</div>
+    </div></div>
+    <div class="step"><div class="num">05</div><div class="body">
+      <div class="title">SMPL and Filtering</div>
+      <div class="detail">SMPL reconstructs 3D body motion, followed by temporal filtering for stable trajectories.</div>
+    </div></div>
+    <div class="step"><div class="num">06</div><div class="body">
+      <div class="title">Optimization</div>
+      <div class="detail">Foot-ground contact constraints are used to reduce single-view reconstruction instability.</div>
+    </div></div>
+    <div class="step"><div class="num">07</div><div class="body">
+      <div class="title">OpenSim Inverse Kinematics</div>
+      <div class="detail">Final 3D motion is converted into joint angle time-series for golf swing kinematic analysis.</div>
+    </div></div>
+  </div>
+
+  <h3>Key Contribution</h3>
+  <ul>
+    <li>Measured and organized a golf swing dataset with motion capture, force plate, and IMU ground truth.</li>
+    <li>Built a golf-specific 2D pose estimation workflow through MMPose fine-tuning.</li>
+    <li>Connected single-view 2D image input to 3D joint kinematics through SMPL, optimization, and OpenSim IK.</li>
+    <li>Prepared the extension path toward GRF estimation using SMPL features and force plate validation.</li>
+  </ul>
+
+  <h3>Tech Stack</h3>
+  <div>
+    <span class="badge primary">Python</span>
+    <span class="badge">MMPose</span>
+    <span class="badge">SMPL</span>
+    <span class="badge">Optimization</span>
+    <span class="badge">OpenSim</span>
+    <span class="badge">Motion Capture</span>
+    <span class="badge">Force Plate</span>
+    <span class="badge">IMU</span>
+  </div>
+</div>
+</main>
+</body>
+</html>
