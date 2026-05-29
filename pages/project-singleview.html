@@ -33,8 +33,9 @@
   </div>
 
   <div class="summary-box">
-    <b>Objective.</b> 단일 정면 카메라 영상만으로 골프 스윙의 3D kinematics를 추출하는 분석 파이프라인 개발.<br>
-    <b>Approach.</b> Motion capture, force plate, IMU를 동시에 측정해 ground truth를 확보하고, golf-specific MMPose fine-tuning, SMPL reconstruction, optimization, OpenSim IK로 연결했습니다.
+    <b>Objective.</b> 단일 정면 카메라 영상만으로 골프 스윙의 3D kinematics를 추출<br>
+    <b>Approach.</b> Motion capture, force plate, IMU를 동시에 측정해 ground truth를 확보하고, golf-specific MMPose fine-tuning, SMPL reconstruction, optimization, OpenSim IK로 연결<br>
+    <b>Plan.</b> Single View 에서 추출한 features 와 Ground Reaction Force (GRF) Mapping을 통한 GRF Estimation / IMU 기반의 골프 스윙 관련 Parameters 추정
   </div>
 
   <h3>Data Acquisition</h3>
@@ -179,10 +180,10 @@
   <h3>Tech Stack</h3>
   <div>
     <span class="badge primary">Python</span>
-    <span class="badge">MMPose</span>
-    <span class="badge">SMPL</span>
+    <span class="badge primary">OpenSim</span>
+    <span class="badge primary">MMPose</span>
+    <span class="badge primary">SMPL</span>
     <span class="badge">Optimization</span>
-    <span class="badge">OpenSim</span>
     <span class="badge">Motion Capture</span>
     <span class="badge">Force Plate</span>
     <span class="badge">IMU</span>
