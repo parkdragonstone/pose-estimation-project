@@ -60,16 +60,18 @@
   <input class="visual-tab-input" type="radio" name="project2-visual-tab" id="project2-tab-finetune" checked>
   <input class="visual-tab-input" type="radio" name="project2-visual-tab" id="project2-tab-reconstruction">
   <input class="visual-tab-input" type="radio" name="project2-visual-tab" id="project2-tab-future">
+  <input class="visual-tab-input" type="radio" name="project2-visual-tab" id="project2-tab-video">
 
   <div class="visual-tabs" role="tablist" aria-label="Project 2 image sections">
     <label class="visual-tab-label" for="project2-tab-finetune">Model Fine-Tuning</label>
     <label class="visual-tab-label" for="project2-tab-reconstruction">2D Pose Estimation + SMPL + OpenSim IK</label>
     <label class="visual-tab-label" for="project2-tab-future">Future Work</label>
+    <label class="visual-tab-label" for="project2-tab-video">Video</label>
   </div>
 
   <div class="visual-tab-panels">
     <section class="visual-tab-panel" id="project2-panel-finetune">
-      <div class="figure-grid">
+      <div class="figure-grid landscape">
         <figure class="figure-card wide">
           <img class="figure-media" src="../images/project2_fineTuning.png" alt="Fine tuning result chart for golf swing pose estimation">
           <figcaption class="figure-caption">
@@ -113,6 +115,21 @@
           <figcaption class="figure-caption">
             <strong>Future Work - GRF Estimation</strong>
             <span>SMPL features and measured force plate data are used as the basis for ground reaction force estimation.</span>
+          </figcaption>
+        </figure>
+      </div>
+    </section>
+
+    <section class="visual-tab-panel" id="project2-panel-video">
+      <div class="figure-grid compact">
+        <figure class="figure-card tall">
+          <video class="figure-media video-media" controls preload="metadata">
+            <source src="../images/project2_SMPLVideo.mp4" type="video/mp4">
+            Your browser does not support this video format.
+          </video>
+          <figcaption class="figure-caption">
+            <strong>Project 2 SMPL Video</strong>
+            <span>Single-view SMPL reconstruction result video.</span>
           </figcaption>
         </figure>
       </div>

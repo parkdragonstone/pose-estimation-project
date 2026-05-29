@@ -42,17 +42,19 @@
   <input class="visual-tab-input" type="radio" name="project1-visual-tab" id="project1-tab-camera">
   <input class="visual-tab-input" type="radio" name="project1-visual-tab" id="project1-tab-calibration">
   <input class="visual-tab-input" type="radio" name="project1-visual-tab" id="project1-tab-reconstruction">
+  <input class="visual-tab-input" type="radio" name="project1-visual-tab" id="project1-tab-video">
 
   <div class="visual-tabs" role="tablist" aria-label="Project 1 image sections">
     <label class="visual-tab-label" for="project1-tab-overall">Overall Result</label>
-    <label class="visual-tab-label" for="project1-tab-camera">Step 1a-Camera Setup</label>
+    <label class="visual-tab-label" for="project1-tab-camera">Camera Setup</label>
     <label class="visual-tab-label" for="project1-tab-calibration">Calibration</label>
     <label class="visual-tab-label" for="project1-tab-reconstruction">Reconstruction and Kinematics</label>
+    <label class="visual-tab-label" for="project1-tab-video">Video</label>
   </div>
 
   <div class="visual-tab-panels">
     <section class="visual-tab-panel" id="project1-panel-overall">
-      <div class="figure-grid landscape single">
+      <div class="figure-grid landscape">
         <figure class="figure-card wide">
           <img class="figure-media" src="../images/project1_overallResults.png" alt="Project 1 full pipeline result overview">
           <figcaption class="figure-caption">
@@ -64,11 +66,11 @@
     </section>
 
     <section class="visual-tab-panel" id="project1-panel-camera">
-      <div class="figure-grid landscape single">
+      <div class="figure-grid landscape">
         <figure class="figure-card wide">
           <img class="figure-media" src="../images/project1_cameraSetup.png" alt="Phone camera setup and synchronized capture interface">
           <figcaption class="figure-caption">
-            <strong>Step 1a - Camera Setup</strong>
+            <strong>Camera Setup</strong>
             <span>QR pairing, PC-triggered recording, multi-camera capture, 60fps and 720p capture workflow.</span>
           </figcaption>
         </figure>
@@ -140,6 +142,21 @@
         </figure>
       </div>
     </section>
+
+    <section class="visual-tab-panel" id="project1-panel-video">
+      <div class="figure-grid landscape">
+        <figure class="figure-card wide">
+          <video class="figure-media video-media" controls preload="metadata">
+            <source src="../images/project1_video.mp4" type="video/mp4">
+            Your browser does not support this video format.
+          </video>
+          <figcaption class="figure-caption">
+            <strong>Project 1 Video</strong>
+            <span>Multi-camera markerless motion analysis result video.</span>
+          </figcaption>
+        </figure>
+      </div>
+    </section>
   </div>
 
   <h3>Pipeline (6 Steps)</h3>
@@ -175,12 +192,6 @@
       <div class="tech">Hampel &middot; Butterworth &middot; OpenSim</div>
     </div></div>
   </div>
-
-  <h3>Project 1 Video</h3>
-  <video class="video-frame" controls preload="metadata">
-    <source src="../images/project1_video.mp4" type="video/mp4">
-    Your browser does not support this video format.
-  </video>
 
   <h3>Key Contribution</h3>
   <ul>

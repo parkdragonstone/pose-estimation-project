@@ -206,9 +206,11 @@ h3 {
 #project1-tab-camera:checked ~ .visual-tabs label[for="project1-tab-camera"],
 #project1-tab-calibration:checked ~ .visual-tabs label[for="project1-tab-calibration"],
 #project1-tab-reconstruction:checked ~ .visual-tabs label[for="project1-tab-reconstruction"],
+#project1-tab-video:checked ~ .visual-tabs label[for="project1-tab-video"],
 #project2-tab-finetune:checked ~ .visual-tabs label[for="project2-tab-finetune"],
 #project2-tab-reconstruction:checked ~ .visual-tabs label[for="project2-tab-reconstruction"],
-#project2-tab-future:checked ~ .visual-tabs label[for="project2-tab-future"] {
+#project2-tab-future:checked ~ .visual-tabs label[for="project2-tab-future"],
+#project2-tab-video:checked ~ .visual-tabs label[for="project2-tab-video"] {
   color: var(--wrks-viz-primary);
   border-color: var(--wrks-viz-primary);
   background: var(--wrks-viz-soft);
@@ -217,27 +219,18 @@ h3 {
 #project1-tab-camera:checked ~ .visual-tab-panels #project1-panel-camera,
 #project1-tab-calibration:checked ~ .visual-tab-panels #project1-panel-calibration,
 #project1-tab-reconstruction:checked ~ .visual-tab-panels #project1-panel-reconstruction,
+#project1-tab-video:checked ~ .visual-tab-panels #project1-panel-video,
 #project2-tab-finetune:checked ~ .visual-tab-panels #project2-panel-finetune,
 #project2-tab-reconstruction:checked ~ .visual-tab-panels #project2-panel-reconstruction,
-#project2-tab-future:checked ~ .visual-tab-panels #project2-panel-future {
+#project2-tab-future:checked ~ .visual-tab-panels #project2-panel-future,
+#project2-tab-video:checked ~ .visual-tab-panels #project2-panel-video {
   display: block;
-}
-.video-frame {
-  width: 100%;
-  display: block;
-  margin-top: 8px;
-  border: 1px solid var(--wrks-viz-border);
-  border-radius: var(--wrks-viz-radius);
-  background: #000;
 }
 .figure-grid.compact {
   grid-template-columns: repeat(4, minmax(0, 1fr));
 }
 .figure-grid.landscape {
   grid-template-columns: repeat(2, minmax(0, 1fr));
-}
-.figure-grid.landscape.single {
-  grid-template-columns: 1fr;
 }
 .figure-grid.landscape .figure-media {
   height: auto;
@@ -272,6 +265,56 @@ h3 {
   display: block;
   background: var(--wrks-viz-soft);
   object-fit: contain;
+}
+.is-fullscreenable {
+  cursor: zoom-in;
+}
+.fullscreen-lock {
+  overflow: hidden;
+}
+.image-fullscreen {
+  position: fixed;
+  inset: 0;
+  z-index: 1000;
+  display: none;
+  align-items: center;
+  justify-content: center;
+  padding: 24px;
+  background: rgba(10, 15, 24, 0.94);
+}
+.image-fullscreen.is-open {
+  display: flex;
+}
+.image-fullscreen-media {
+  width: auto;
+  height: auto;
+  max-width: 96vw;
+  max-height: 92vh;
+  display: block;
+  object-fit: contain;
+  box-shadow: 0 18px 60px rgba(0, 0, 0, 0.42);
+}
+.image-fullscreen-close {
+  position: fixed;
+  top: 14px;
+  right: 14px;
+  width: 36px;
+  height: 36px;
+  border: 1px solid rgba(255, 255, 255, 0.32);
+  border-radius: 50%;
+  background: rgba(15, 23, 42, 0.78);
+  color: #fff;
+  font-size: 20px;
+  line-height: 1;
+  cursor: pointer;
+}
+.image-fullscreen-close:hover,
+.image-fullscreen-close:focus {
+  border-color: #fff;
+  outline: none;
+}
+.video-media {
+  background: #000;
 }
 .figure-caption {
   padding: 8px 10px 10px;
